@@ -1,6 +1,8 @@
 # Sistema-de-ventas
 Este es un sistema de ventas como proyecto de Bases de datos 2
-# Dulceria
+# Descripcion del negocio
+La dulcería La Fábrica de Antojos es un negocio dedicado a la venta de una amplia variedad de productos dulces, como chocolates, caramelos, galletas y combos especiales. Su objetivo es satisfacer los antojos de los clientes ofreciendo productos de calidad y promociones atractivas.
+# Dulceria "Fabrica de antojos"
 # Enunciado
 a: La dulcería registra información sobre las personas, incluyendo el nombre, apellido, número de identificación (DNI), dirección, teléfono y correo electrónico.
 Las personas pueden clasificarse en clientes y empleados.
@@ -137,3 +139,4 @@ correo
 - numero_operacion
 
 - banco_emisor
+
