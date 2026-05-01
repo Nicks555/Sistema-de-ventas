@@ -37,60 +37,103 @@ teléfono
 correo
 
 2. Cliente (Subclase de Persona)
-DNI (PK, FK de Persona)
-tipo_cliente
-fecha_registro
+
+- DNI (PK, FK de Persona)
+
+- tipo_cliente
+
+- fecha_registro
+
 3. Empleado (Subclase de Persona)
-DNI (PK, FK de Persona)
-cargo
-salario
-horario
+
+- DNI (PK, FK de Persona)
+
+- cargo
+
+- salario
+
+- horario
 4. Categoría
-id_categoria (PK)
-nombre (único)
-descripción
+
+- id_categoria (PK)
+
+- nombre (único)
+
+- descripción
 5. Producto (Entidad general)
-codigo_producto (PK)
-nombre
-descripción
-precio
-stock
-id_categoria (FK)
+
+- codigo_producto (PK)
+
+- nombre
+
+- descripción
+
+- precio
+
+- stock
+
+- id_categoria (FK)
+
 6. ProductoSimple (Subclase de Producto)
-codigo_producto (PK, FK de Producto)
+
+- codigo_producto (PK, FK de Producto)
 
 7. ProductoCompuesto (Subclase de Producto)
-codigo_producto (PK, FK de Producto)
+
+- codigo_producto (PK, FK de Producto)
 
 8. Venta
-id_venta (PK)
-fecha
-total
-DNI_cliente (FK)
-DNI_empleado (FK)
+
+- id_venta (PK)
+
+- fecha
+
+- total
+
+- DNI_cliente (FK)
+
+- DNI_empleado (FK)
+
 9. DetalleVenta (Entidad débil o intermedia)
-id_venta (PK, FK)
-codigo_producto (PK, FK)
-cantidad
-precio_unitario
+
+- id_venta (PK, FK)
+
+- codigo_producto (PK, FK)
+
+- cantidad
+
+- precio_unitario
 
 10. Pago (Entidad general)
-id_pago (PK)
-fecha
-monto
-id_venta (FK)
+
+- id_pago (PK)
+
+- fecha
+
+- monto
+
+- id_venta (FK)
 
 11. PagoEfectivo (Subclase de Pago)
-id_pago (PK, FK)
-monto_entregado
-cambio
+
+- id_pago (PK, FK)
+
+- monto_entregado
+
+- cambio
 
 12. PagoTarjeta (Subclase de Pago)
-id_pago (PK, FK)
-numero_transaccion
-entidad_bancaria
+
+- id_pago (PK, FK)
+
+- numero_transaccion
+
+- entidad_bancaria
 
 13. PagoTransferencia (Subclase de Pago)
-id_pago (PK, FK)
-numero_operacion
-banco_emisor
+
+- id_pago (PK, FK)
+
+- numero_operacion
+
+- banco_emisor
