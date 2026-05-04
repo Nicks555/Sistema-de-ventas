@@ -140,3 +140,4 @@ correo
 
 - banco_emisor
 
+- Modelo Entidad Relacion
