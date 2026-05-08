@@ -141,3 +141,10 @@ correo
 - banco_emisor
 
 - Modelo Entidad Relacion
+
+# Diagrama EER
+![Diagrama EER](diagrama.jpeg)
+
+# Diagrama Relacional
+![Diagrama Relacional](tablas.jpeg)
+

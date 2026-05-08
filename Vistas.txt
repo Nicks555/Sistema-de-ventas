@@ -1,0 +1,134 @@
+---Vistas---
+--categorias--
+CREATE VIEW vista_productos_categoria AS
+SELECT 
+    p.codigo_producto,
+    p.nombre AS producto,
+    p.descripcion,
+    p.precio,
+    p.stock,
+    c.nombre AS categoria
+FROM Producto p
+JOIN Categoria c 
+ON p.id_categoria = c.id_categoria;
+
+--Clientes--
+CREATE VIEW vista_clientes AS
+SELECT 
+    p.DNI,
+    p.nombre,
+    p.apellido,
+    p.telefono,
+    p.correo,
+    c.tipo_cliente,
+    c.fecha_registro
+FROM Persona p
+JOIN Cliente c
+ON p.DNI = c.DNI;
+
+--Empleados--
+CREATE VIEW vista_empleados AS
+SELECT 
+    p.DNI,
+    p.nombre,
+    p.apellido,
+    e.cargo,
+    e.salario,
+    e.horario
+FROM Persona p
+JOIN Empleado e
+ON p.DNI = e.DNI;
+
+--Ventas_reaalizadas--
+CREATE VIEW vista_ventas AS
+SELECT 
+    v.id_venta,
+    v.fecha,
+    v.total,
+    
+    CONCAT(pc.nombre, ' ', pc.apellido) AS cliente,
+    
+    CONCAT(pe.nombre, ' ', pe.apellido) AS empleado
+    
+FROM Venta v
+
+JOIN Cliente c 
+ON v.DNI_cliente = c.DNI
+
+JOIN Persona pc 
+ON c.DNI = pc.DNI
+
+JOIN Empleado e 
+ON v.DNI_empleado = e.DNI
+
+JOIN Persona pe 
+ON e.DNI = pe.DNI;
+
+--Detalles_ventas--
+CREATE VIEW vista_detalle_ventas AS
+SELECT 
+    dv.id_venta,
+    p.nombre AS producto,
+    dv.cantidad,
+    dv.precio_unitario,
+    (dv.cantidad * dv.precio_unitario) AS subtotal
+FROM DetalleVenta dv
+JOIN Producto p
+ON dv.codigo_producto = p.codigo_producto;
+
+--Vista de pagos--
+CREATE VIEW vista_pagos AS
+SELECT 
+    id_pago,
+    id_venta,
+    fecha,
+    monto
+FROM Pago;
+
+--Efectivo--
+CREATE VIEW vista_pago_efectivo AS
+SELECT 
+    p.id_pago,
+    p.fecha,
+    p.monto,
+    pe.monto_entregado,
+    pe.cambio
+FROM Pago p
+JOIN PagoEfectivo pe
+ON p.id_pago = pe.id_pago;
+
+--tarjeta--
+CREATE VIEW vista_pago_tarjeta AS
+SELECT 
+    p.id_pago,
+    p.fecha,
+    p.monto,
+    pt.numero_transaccion,
+    pt.entidad_bancaria
+FROM Pago p
+JOIN PagoTarjeta pt
+ON p.id_pago = pt.id_pago;
+
+--Productos compuestos--
+CREATE VIEW vista_productos_compuestos AS
+SELECT 
+    pc.codigo_producto AS codigo_compuesto,
+    p1.nombre AS producto_compuesto,
+    
+    ps.codigo_producto AS codigo_simple,
+    p2.nombre AS producto_simple,
+    
+    cp.cantidad
+FROM ComposicionProducto cp
+
+JOIN ProductoCompuesto pc
+ON cp.codigo_compuesto = pc.codigo_producto
+
+JOIN ProductoSimple ps
+ON cp.codigo_simple = ps.codigo_producto
+
+JOIN Producto p1
+ON pc.codigo_producto = p1.codigo_producto
+
+JOIN Producto p2
+ON ps.codigo_producto = p2.codigo_producto;
