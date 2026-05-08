@@ -153,3 +153,6 @@ correo
 
 # Panel de administrador
 ![panel de administrador](img/panel_de_administrador.png)
+
+# Repositorio
+[ir al repositorio](https://github.com/Nicks555/Sistema-de-ventas.git)
