@@ -149,7 +149,7 @@ correo
 ![Diagrama Relacional](tablas.jpeg)
 
 # login
-![Login](login.png)
+![login](img/login.png)
 
 # Panel de administrador
-![Panel de administrador](panel_de_administrador.png)
+![panel de administrador](img/panel_de_administrador.png)
